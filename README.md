@@ -15,8 +15,8 @@ The Ranobe-Honyaku website source code.
 
 ```sql
 DROP DATABASE ranobe_dev;
-CREATE ROLE ranobe_usr WITH LOGIN PASSWORD '<password>';
-CREATE DATABASE ranobe_dev OWNER raobe_usr;
+CREATE ROLE ranobe_usr WITH LOGIN PASSWORD 'password';
+CREATE DATABASE ranobe_dev OWNER ranobe_usr;
 \q
 ```
 
@@ -37,26 +37,40 @@ credentials, etc. Try this string format:
 
 ```
 "postgresql://username:password@host:port/database"
-"postgresql://scott:tiger@localhost:5432/ranobe_dev"
-or
-"postgresql://localhost/ranobe_dev" <-- note: I did get this to work too on my machine
+"postgresql://ranobe_usr:password@localhost:5432/ranobe_dev"
 ```
 
-### Run migrations on your local database and startapp
+### Run migrations on the database
 
 ```shell
-(optional) python manage.py db init
-(optional) python manage.py db migrate
 python manage.py db upgrade
+```
+
+This applies migrations in the `migrations/` directory to your local database.
+Typically you will need to perform this whenever the schema in your database
+does not match the schema defined in `models/`.
+
+To make migrations, you can run `manage.py db migrate`, but you won't need to
+do this right after `git pull/fetch`. You will need to make migrations when
+you change the model yourself though. Please remember to comment the migrations
+in `/migrations/versions/`.
+
+### Load database with initial data (superusers, roles, etc)
+
+You will only need to do this if this is your first time setting up the
+database (or if you dropped/deleted the database previously).
+
+```shell
+python manage.py setup
+python manage.py create_user <username> <email>
+```
+
+Follow the on-screen instructions. The current roles available are `admin` and `staff`
+
+### Runserver
+
+```shell
 python manage.py runserver
 ```
 
-If you are git cloning from master, you most likely won't need to run init or
-migrate. `init` should only be run if you are missing the `migrations/`
-directory. `migrate` should be run whenever you modify the model to prepare
-migrations.
-
-`upgrade` is run to apply new migrations to your database, and generally should
-always been run when cloning or pulling from master. If you having
-migration/database issues after cloning/pulling, you may want to consider
-dropping your database and recreating it.
+Note that this set of instructions is for a development configuration only. Debug mode is on.

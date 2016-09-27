@@ -1,7 +1,9 @@
 from flask import Flask
 from flask_migrate import Migrate
+from flask_security import Security, SQLAlchemyUserDatastore
 
 from RanobeHonyaku.database import db
+from RanobeHonyaku.models import User, Role
 from RanobeHonyaku.api.v1 import api_v1
 from RanobeHonyaku.admin import admin
 from RanobeHonyaku.utils import setup_file
@@ -17,6 +19,8 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # Extension setup (e.g. database)
 db.init_app(app)
 Migrate(app, db)
+user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+Security(app, user_datastore)
 
 # Registering the applications blueprints
 app.register_blueprint(api_v1)
