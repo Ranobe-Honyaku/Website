@@ -8,4 +8,3 @@ Overall, importing everything sounds like a reasonable choice.
 from RanobeHonyaku.models.series import *
 from RanobeHonyaku.models.chapter import *
 from RanobeHonyaku.models.user import *
-

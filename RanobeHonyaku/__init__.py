@@ -12,11 +12,12 @@ from RanobeHonyaku.utils import setup_file
 app = Flask("RanobeHonyaku")
 
 # Load config files
+# Signs cookies so they can't be edited without this key
 app.config["SECRET_KEY"] = setup_file["SETUP"]["SECRET_KEY"]
 app.config["SQLALCHEMY_DATABASE_URI"] = setup_file["SETUP"]["SQLALCHEMY_DATABASE_URI"]
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# Extension setup (e.g. database)
+# Extension setup
 db.init_app(app)
 Migrate(app, db)
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
