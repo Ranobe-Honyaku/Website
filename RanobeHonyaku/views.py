@@ -41,3 +41,15 @@ def applications():
 @app.route("/api")
 def redirect_to_github():
     return redirect(setup_file["SOCIAL"]["GITHUB"], 301)
+
+
+# The route that leads to the page for main projects
+@app.route("/main-projects")
+def main():
+    return render_template("projects.html", setup_file=setup_file)
+
+
+# The route that leads to the page for teaser projects
+@app.route("/teaser-projects")
+def teasers():
+    return render_template("projects.html", setup_file=setup_file)
