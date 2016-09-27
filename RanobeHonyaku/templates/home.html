@@ -1,43 +1,43 @@
 {% extends "base.html" %}
 {% block main %}
-<div class="columns">
-    <div class="column">
-        <article class="message is-info">
-            <div class="message-header has-text-centered">
-                About the site
-            </div>
-            <div class="message-body">
-                Ranobe-Honyaku is a fan translation community that facilitates the hosting of light novels being translated. </br> </br>
-                It's done differently to the only other community based platform (that I know of), Baka-Tsuki as it's not done in the style of a wiki.
-                Founded in 2016 by Recchan after thinking MediaWiki was outdated. The site is built upon bulma.css and Python's micro-framework Flask using RethinkDB
-                as the database. </br> </br>
-                Just to be clear; this isn't a translation group. Translators/Translation groups choose to come here and independantly translate and upload their translations;
-                we have no input on what is translated or in what manner they translate, nor do we have control over how fast updates occur.
-            </div>
-        </article>
+    <div class="columns">
+        <div class="column">
+            <article class="message is-info">
+                <div class="message-header has-text-centered">
+                    About the site
+                </div>
+                <div class="message-body">
+                    Ranobe-Honyaku is a fan translation community that facilitates the hosting of light novels being translated. </br> </br>
+                    It's done differently to the only other community based platform (that I know of), Baka-Tsuki as it's not done in the style of a wiki.
+                    Founded in 2016 by Recchan after thinking MediaWiki was outdated. The site is built upon bulma.css and Python's micro-framework Flask using RethinkDB
+                    as the database. </br> </br>
+                    Just to be clear; this isn't a translation group. Translators/Translation groups choose to come here and independantly translate and upload their translations;
+                    we have no input on what is translated or in what manner they translate, nor do we have control over how fast updates occur.
+                </div>
+            </article>
+        </div>
     </div>
-</div>
-<div class="columns">
-    <div class="column">
-        <article class="message is-info">
-            <div class="message-header has-text-centered">
-                Translation Projects
-            </div>
-            <div class="message-body has-text-centered">
-                <a class="button is-primary is-large is-outlined" href="">Main projects</a>
-                <a class="button is-primary is-large is-outlined" href="">Teaser projects</a>
-            </div>
-        </article>
+    <div class="columns">
+        <div class="column">
+            <article class="message is-info">
+                <div class="message-header has-text-centered">
+                    Translation Projects
+                </div>
+                <div class="message-body has-text-centered">
+                    <a class="button is-primary is-large is-outlined" href="{{ url_for("main") }}">Main projects</a>
+                    <a class="button is-primary is-large is-outlined" href="{{ url_for("teasers")  }}">Teaser projects</a>
+                </div>
+            </article>
+        </div>
+        <div class="column">
+            <article class="message is-info">
+                <div class="message-header has-text-centered">
+                    Approved applications
+                </div>
+                <div class="message-body has-text-centered">
+                    <a class="button is-primary is-large is-outlined" href="{{ url_for('applications') }}">Applications</a>
+                </div>
+            </article>
+        </div>
     </div>
-    <div class="column">
-        <article class="message is-info">
-            <div class="message-header has-text-centered">
-                Approved applications
-            </div>
-            <div class="message-body has-text-centered">
-                <a class="button is-primary is-large is-outlined" href="{{ url_for('applications') }}">Applications</a>
-            </div>
-        </article>
-    </div>
-</div>
 {% endblock main %}

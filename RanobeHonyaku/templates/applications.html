@@ -1,35 +1,35 @@
 {% extends "base.html" %}
 {% block main %}
-<div class="columns">
-    <div class="column">
-        <table class="table is-bordered is-striped">
-            <thead>
-                <tr>
-                    <th>
-                        Application name
-                    </th>
-                    <th>
-                        Link to source code
-                    </th>
-                    <th>
-                        Description
-                    </th>
-                </tr>
-            </thead>
-            {% for name, project, description in applications %}
-            <tr>
-                <td>
-                    {{ name }}
-                </td>
-                <td>
-                    {{ project }}
-                </td>
-                <td>
-                    {{ description }}
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
+    <div class="columns">
+        <div class="column">
+            <table class="table is-bordered is-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Application name
+                        </th>
+                        <th>
+                            Link to source code
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                {% for name, project, description in applications %}
+                    <tr>
+                        <td>
+                            {{ name }}
+                        </td>
+                        <td>
+                            {{ project }}
+                        </td>
+                        <td>
+                            {{ description }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
-</div>
 {% endblock main %}
