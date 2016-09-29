@@ -1,0 +1,6 @@
+component:
+  type: RanobeHonyaku:Container
+  components:
+    kyoukai:
+      ip: "127.0.0.1"
+      port: 4444

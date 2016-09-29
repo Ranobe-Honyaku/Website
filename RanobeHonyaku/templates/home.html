@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %} {{ title }} {% endblock title %}
 {% block main %}
     <div class="columns">
         <div class="column">
@@ -24,8 +25,8 @@
                     Translation Projects
                 </div>
                 <div class="message-body has-text-centered">
-                    <a class="button is-primary is-large is-outlined" href="{{ url_for("main") }}">Main projects</a>
-                    <a class="button is-primary is-large is-outlined" href="{{ url_for("teasers")  }}">Teaser projects</a>
+                    <a class="button is-primary is-large is-outlined" href="/main-projects">Main projects</a>
+                    <a class="button is-primary is-large is-outlined" href="/teaser-projects">Teaser projects</a>
                 </div>
             </article>
         </div>
@@ -35,7 +36,7 @@
                     Approved applications
                 </div>
                 <div class="message-body has-text-centered">
-                    <a class="button is-primary is-large is-outlined" href="{{ url_for('applications') }}">Applications</a>
+                    <a class="button is-primary is-large is-outlined" href="/applications">Applications</a>
                 </div>
             </article>
         </div>
