@@ -1,5 +1,5 @@
 component:
-  type: RanobeHonyaku:Container
+  type: RanobeHonyaku::Container
   components:
     kyoukai:
       ip: "127.0.0.1"
